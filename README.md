@@ -23,8 +23,8 @@ you can use the following command
 pip install questionary
 ```
 3. Navigate to the project directory:
-After downloading the files from the repository , create a folder and add them to it
-4. Go to the CMD\Terminal "cd" to your folder, example shown below
+After cloning the repository
+4. Go to the CMD\Terminal "cd" to the repository folder, example shown below
 ```bash
 cd  C:\users\user\folder
 ```
