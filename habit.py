@@ -62,7 +62,7 @@ class Habit:
         if current_streak is not None:
             current_streak += 1
         else:
-            current_streak = 1  # Initialize to 1 if it's None
+            current_streak = 1
         db.increment_streak(self.db, self.name)
         print(f"\nStreak for habit '{self.name.capitalize()}' increased to {current_streak}.\n")
 
