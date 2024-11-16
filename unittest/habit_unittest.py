@@ -17,7 +17,7 @@ class TestHabitClass(unittest.TestCase):
         habit.add()
         self.assertTrue(db.check_habit_exists(self.db_conn, "Exercise"))
 
-        # Test adding an existing habit (should print a message)
+        # Test adding an existing habit
         habit.add()
         self.assertFalse(db.check_habit_exists(self.db_conn, "NonexistentHabit"))
 
