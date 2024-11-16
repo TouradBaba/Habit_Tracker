@@ -19,7 +19,7 @@ class TestHabitClass(unittest.TestCase):
 
         # Test adding an existing habit (should print a message)
         habit.add()
-        self.assertFalse(db.check_habit_exists(self.db_conn, "NonexistentHabit"))  # Adjusted this line
+        self.assertFalse(db.check_habit_exists(self.db_conn, "NonexistentHabit"))
 
     def test_modify_streak(self):
         habit = Habit(name="Exercise", database="test_db.db")
@@ -30,10 +30,10 @@ class TestHabitClass(unittest.TestCase):
         updated_streak = db.get_habit_streak_count(self.db_conn, "Exercise")
         self.assertEqual(updated_streak, 5)
 
-        # Test modifying streak with invalid input (should print a message)
+        # Test modifying streak with invalid input
         habit.modify_streak(new_streak="invalid")
         unchanged_streak = db.get_habit_streak_count(self.db_conn, "Exercise")
-        self.assertEqual(unchanged_streak, 5)  # Adjusted this line
+        self.assertEqual(unchanged_streak, 5)
 
     def test_update_habit(self):
         habit = Habit(name="Exercise", description="Daily exercise", periodicity="daily", category="Health",
@@ -43,7 +43,7 @@ class TestHabitClass(unittest.TestCase):
         habit.add()
         habit.update(new_name="Running", new_description="Running daily", new_periodicity="weekly",
                      new_category="Fitness")
-        updated_habit = db.get_habit_names(self.db_conn)  # Adjusted this line
+        updated_habit = db.get_habit_names(self.db_conn)
         self.assertIn("Running", updated_habit)
 
     def test_increase_streak(self):
@@ -66,7 +66,7 @@ class TestHabitClass(unittest.TestCase):
         updated_streak = db.get_habit_streak_count(self.db_conn, "Exercise")
         self.assertEqual(updated_streak, 0)
 
-        # Test clearing streak for a non-existing habit (should print a message)
+        # Test clearing streak for a non-existing habit
         habit.name = "Running"
         habit.clear_streak()
 
